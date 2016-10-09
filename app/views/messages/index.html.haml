@@ -1,10 +1,10 @@
 %h1 You: #{session[:username]}
 
-%ul
+%ul.js-messages
   - @messages.each do |message|
     %li= message.body
 
-= form_for @new_message do |f|
+= form_for @new_message, remote: true do |f|
   = f.text_field :body
   = f.submit "Send"
 
