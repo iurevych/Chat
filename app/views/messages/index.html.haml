@@ -1,0 +1,10 @@
+%h1 You: #{session[:username]}
+
+%ul
+  - @messages.each do |message|
+    %li= message.body
+
+= form_for @new_message do |f|
+  = f.text_field :body
+  = f.submit "Send"
+

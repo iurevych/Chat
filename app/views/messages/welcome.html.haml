@@ -1,0 +1,7 @@
+%pre= session[:username]
+
+.container
+  = form_tag action: :login do
+    = label_tag :username
+    = text_field_tag :username
+    = submit_tag "Send"
