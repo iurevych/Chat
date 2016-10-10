@@ -1,8 +1,11 @@
 %h1 You: #{session[:username]}
 
+%div.js-message-filter{style: "display: none;"}
 %ul.js-messages
   - @messages.each do |message|
-    %li= message.body
+    %li
+      = message.body
+      %small &mdash; from: #{message.username} at #{message.created_at.strftime("%r")}
 
 = form_for @new_message, remote: true do |f|
   = f.text_field :body
